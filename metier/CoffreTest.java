@@ -86,7 +86,7 @@ public class CoffreTest {
 		coffre.fermerCoffre();
 		assertEquals("Ferme",coffre.nomEtat());
 		assertFalse(coffre.lapinEstLibere());
-		assertFalse(coffre.chienEstLibere());
+		assertTrue(coffre.chienEstLibere());
 	}
 	
 	@Test
@@ -96,9 +96,10 @@ public class CoffreTest {
 		coffre.tournerChandelleVersDroite();
 		coffre.fermerCoffre();
 		coffre.remettreLivre();
-		assertEquals("Cache",coffre.nomEtat());
+		assertEquals("CacheParBibliotheque",coffre.nomEtat());
 		assertFalse(coffre.lapinEstLibere());
 		assertFalse(coffre.chienEstLibere());
+
 	}
 	
 	@Test
@@ -108,7 +109,7 @@ public class CoffreTest {
 		coffre.tournerChandelleVersGauche();
 		assertEquals("Bloque",coffre.nomEtat());
 		assertTrue(coffre.chienEstLibere());
-		assertFalse(coffre.lapinEstLibere());
+		assertTrue(coffre.lapinEstLibere());
 	}
 	
 	public void testPresqueOuvertPuisBloquePuisToujoursBloque(){
@@ -121,6 +122,13 @@ public class CoffreTest {
 		coffre.oterLivre();
 		assertEquals("Bloque",coffre.nomEtat());
 		assertTrue(coffre.chienEstLibere());
+		assertFalse(coffre.lapinEstLibere());
+	}
+	
+	public void testCacheBloque(){
+		coffre.tournerChandelleVersGauche();
+		assertEquals("CacheParBibliotheque",coffre.nomEtat());
+		assertFalse(coffre.chienEstLibere());
 		assertFalse(coffre.lapinEstLibere());
 	}
 

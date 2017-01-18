@@ -1,11 +1,15 @@
 package metier;
 
+import controleur.Observable;
 import etat.AbsEtatCoffre;
 import etat.AbsEtatVisible;
 import etat.EtatCache;
 
 
-public class Coffre implements I_CoffreChateau{
+public class Coffre 
+extends Observable
+implements I_CoffreChateau
+{
 
 	private boolean chienLibere = false;
 	private boolean lapinLibere = false;
